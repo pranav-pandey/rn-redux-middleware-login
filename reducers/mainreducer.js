@@ -8,18 +8,19 @@ export default function(state = valid , action){
 
 	switch(action.type){
 		case LOGIN_SUCCESS :
-		{	
-			return  { ...state , loggedIn : true, text : '',passtext : '',userx : state.text };
+		{
+			console.log(action.id);
+			return  { ...state , loggedIn : true, text : '',passtext : '',userx : action.id.name };
 		}
 		case LOGIN_ERROR :
-			return { ...state, loggedIn : false, text : '',passtext : '' };	
-			
+			return { ...state, loggedIn : false, text : '',passtext : '' };
+
 		default : return state;
 
 		case CHANGE_TEXT :
 
 			return { ...state , text : action.id};
-			
+
 
 		case CHANGE_PASSWORD :
 			return { ...state , passtext : action.id};

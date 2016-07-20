@@ -12,23 +12,27 @@ import {
   Text,
   View
 } from 'react-native';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import mainreducer from './reducers/mainreducer';
 import Login from './components/login';
-
-let store = createStore(mainreducer);
+const store = createStore(
+ mainreducer,
+ applyMiddleware(thunk)
+);
 
 class App extends Component {
-  
+
   render(){
+
     return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>
-          Welcome to React Native Simple Login App!
-      </Text>
-       <Login />
-    </View>
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+            Welcome to React Native Simple Login App!
+        </Text>
+         <Login />
+      </View>
     );
   }
 }
@@ -37,7 +41,7 @@ class trial_login extends Component {
   render() {
     return (
     <Provider store= {store} >
-     <App /> 
+     <App />
     </Provider>
     );
   }
