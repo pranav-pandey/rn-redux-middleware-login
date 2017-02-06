@@ -20,7 +20,7 @@ export function loginerror(usercred){
 export function loginAsync(usercred){
 	return function (dispatch){
 
-	   fetch('http://192.168.1.68:3000/api/login',  {
+	   fetch('http://localaddress/api/login',  {
 								  method: 'POST',
 								  headers: {
 								    'Accept': 'application/json',
